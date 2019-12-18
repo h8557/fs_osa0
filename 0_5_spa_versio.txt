@@ -1,0 +1,21 @@
+title SPA-versio
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+palvelin-->selain: 200 OK
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin-->selain: 200 OK main.css
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+palvelin-->selain: 200 OK spa.js
+
+note over selain:
+selain suorittaa spa.js:n,
+joka pyytää JSON-datan palvelimelta
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin-->selain: [{ content: "HTML on helppoa", date: "2019-01-01" }, ...]
+
+note over selain:
+selain suorittaa tapahtumankäsittelijän,
+joka näyttää JSON-datan content-osan listana
+end note

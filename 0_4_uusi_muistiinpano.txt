@@ -1,0 +1,22 @@
+title Uusi muistiinpano
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+palvelin->selain: 302 Found
+
+note over selain:
+Selaimelta submittoidaan uusi muistiinpano.
+palvelin lähettää uudelleenohjauspyynnön.
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+palvelin->selain: 304 Not Modified
+selain->palvelin: https://fullstack-exampleapp.herokuapp.com/main.js
+palvelin->selain: 304 Not Modified
+selain-->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin->selain: [{content: "HTML is easy", date: "2019-05-23T17:30:31.098Z"},…]
+
+note over selain:
+Selain yrittää ladata uudelleen sivun sisällön ja lähettää GET -pyynnöt.
+Palvelin ilmoittaa, että /notes ja main.js, eivät ole muuttuneet, mutta
+lähettää uudestaan data.json:in selaimelle. Eventhandler päivittää sivun.
+end note

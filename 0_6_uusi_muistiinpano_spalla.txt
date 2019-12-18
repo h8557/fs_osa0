@@ -1,0 +1,10 @@
+title uusi muistiinpano SPA:lla
+
+selain->palvelin: POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+palvelin->selain: 201 Created
+
+note over selain:
+javascript hoitaa sivun näyttämisen ja lähettämisen palvelimella,
+ei lähetä turhia pyyntöjä palvelimelle
+end note
+
